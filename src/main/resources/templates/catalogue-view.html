@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogue</title>
+</head>
+<body>
+<h1>Список сетевых устройств</h1>
+<table border="1" style="width:300px">
+    <tr>
+        <th>Порядковый номер устройства</th>
+        <th>Название сетевого устройства</th>
+        <th>Описание сетевого устройства</th>
+        <th>Действия</th>
+    </tr>
+
+
+
+    <tr th:each="product : ${tab_lines}">
+    <td>
+        <span th:text="${product.id}"/>
+    </td>
+
+        <td>
+            <a th:href="@{'/diskr?id=' + ${product.id}}" th:text="${product.name}"></a>
+        </td>
+
+        <td>
+            <a th:href="@{'/diskr?id=' + ${product.id}}"> Перейти</a>
+        </td>
+
+        <td>
+            <a th:href="@{'/deleteProd?id=' + ${product.id}}"> Удалить</a>
+
+        </td>
+    </tr>
+<!--        <td><span th:text="${line.diskription}"/></td>-->
+    </tr>
+
+</table>
+</body>
+</html>
